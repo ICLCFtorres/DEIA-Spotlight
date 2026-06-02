@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pride Month Spotlight – Kiyoshi Kuromiya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', Arial, sans-serif; background: #f7f5f0; color: #0E1E42; padding-bottom: 60px; }
+
+  .card { background: #fff; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 16px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+  .card:hover { box-shadow: 0 4px 16px rgba(14,49,107,0.1); }
+  .card.open { border-color: #0E316B; }
+  .card-header { display: flex; align-items: center; gap: 14px; padding: 16px 18px; user-select: none; }
+  .card-num { width: 34px; height: 34px; border-radius: 50%; background: #EDEDED; color: #0E316B; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; transition: background 0.2s, color 0.2s; }
+  .card.open .card-num { background: #0E316B; color: #FFD716; }
+  .card-era { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #0B409C; margin-bottom: 3px; }
+  .card-title { font-size: 17px; font-weight: 700; color: #0E1E42; line-height: 1.3; }
+  .card-arrow { margin-left: auto; font-size: 20px; color: #aaa; transition: transform 0.3s, color 0.2s; flex-shrink: 0; }
+  .card.open .card-arrow { transform: rotate(180deg); color: #0E316B; }
+  .card-body { display: none; padding: 4px 20px 20px 66px; animation: fadeIn 0.2s ease; }
+  .card.open .card-body { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+  .card-body p { font-size: 16px; font-weight: 600; line-height: 1.7; color: #333; margin-bottom: 12px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .callout { background: #EDEDED; border-left: 4px solid #0E316B; padding: 12px 16px; font-size: 15px; font-weight: 600; color: #0E1E42; line-height: 1.6; margin-top: 4px; }
+  .callout strong { color: #0E316B; }
+
+  .progress-wrap { background: #0E316B; padding: 0 32px 20px; display: flex; align-items: center; gap: 12px; }
+  .progress-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #FFD716; border-radius: 2px; width: 0%; transition: width 0.4s ease; }
+  .progress-label { font-size: 12px; color: rgba(255,255,255,0.65); white-space: nowrap; }
+
+  .quiz-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; padding: 11px 14px; font-size: 15px; font-weight: 600; color: #fff; cursor: pointer; text-align: left; font-family: 'Source Sans 3', Arial, sans-serif; width: 100%; margin-bottom: 8px; transition: background 0.15s; }
+  .quiz-btn:hover:not(:disabled) { background: rgba(255,255,255,0.18); }
+  .quiz-btn:disabled { cursor: default; }
+  .quiz-btn.correct { background: #145a32 !important; border-color: #2ecc71 !important; }
+  .quiz-btn.wrong { background: #7b241c !important; border-color: #e74c3c !important; }
+  .quiz-feedback { display: none; margin-top: 14px; background: rgba(255,255,255,0.12); border-radius: 6px; padding: 14px; font-size: 15px; font-weight: 600; line-height: 1.6; color: #fff; }
+  .quiz-feedback.show { display: block; }
+
+  .reflect-pill { background: #EDEDED; border: none; border-radius: 20px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: #0E316B; cursor: pointer; font-family: 'Source Sans 3', Arial, sans-serif; transition: background 0.2s, color 0.2s; }
+  .reflect-pill:hover { background: #0B409C; color: #fff; }
+  .reflect-pill.active { background: #0E316B; color: #FFD716; }
+  .reflect-response { display: none; margin-top: 14px; background: #EDEDED; border-left: 4px solid #0B409C; padding: 12px 16px; font-size: 15px; font-weight: 600; color: #0E1E42; line-height: 1.6; animation: fadeIn 0.2s ease; }
+  .reflect-response.show { display: block; }
+</style>
+</head>
+<body>
+
+<!-- Pride stripe -->
+<div style="display:flex; height:6px;">
+  <div style="flex:1; background:#FF0018;"></div>
+  <div style="flex:1; background:#FF8C00;"></div>
+  <div style="flex:1; background:#FFD700;"></div>
+  <div style="flex:1; background:#008026;"></div>
+  <div style="flex:1; background:#004DFF;"></div>
+  <div style="flex:1; background:#750787;"></div>
+</div>
+
+<!-- HERO -->
+<div style="background:#0E316B; padding:40px 32px 36px;">
+  <p style="font-size:11px; font-weight:700; letter-spacing:2px; color:#FFD716; text-transform:uppercase; margin:0 0 6px 0;">&#9679; Pride Month 2026 &nbsp;&middot;&nbsp; DEIA Spotlight Series</p>
+  <h1 style="font-family:'Playfair Display',Georgia,serif; font-size:32px; font-weight:700; line-height:1.2; color:#fff; margin:0 0 12px 0;">The Forrest Gump of Activism<br><span style="color:#FFD716;">Kiyoshi Kuromiya</span></h1>
+  <p style="font-size:16px; color:#ccd6f0; line-height:1.6; max-width:600px; margin:0 0 16px 0;">Born in a Japanese internment camp. Beaten on the Edmund Pettus Bridge. Co-founder of the Gay Liberation Front. One of the first people to bring free internet access to AIDS patients. This is his story.</p>
+  <p style="font-size:12px; color:#8899cc; margin:0;">Content sourced from <a href="https://www.youtube.com/@yesterqueers/videos" target="_blank" style="color:#aabbd9;">Yesterqueers</a> &mdash; a public history project by historian Amanda W. Timpson.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+  <span class="progress-label" id="prog-label">0 of 6 chapters opened</span>
+</div>
+
+<!-- CARDS -->
+<div style="padding:28px 32px 0;">
+
+  <div class="card" id="card-0" onclick="tog(0)">
+    <div class="card-header">
+      <div class="card-num" id="num-0">1</div>
+      <div><div class="card-era">1943 &ndash; 1960</div><div class="card-title">Born Behind Barbed Wire</div></div>
+      <span class="card-arrow" id="arr-0">&#8964;</span>
+    </div>
+    <div class="card-body" id="body-0">
+      <p>Kiyoshi Kuromiya was born on May 9, 1943, inside the Japanese American internment camp at Heart Mountain, Wyoming &mdash; spending the first three years of his life there. He would later joke that while many activists could say they had been jailed for their beliefs, he was one of the few who could honestly say he was <em>born</em> a criminal.</p>
+      <p>After the war, his family returned to Monrovia, California. Kiyoshi knew from a young age that he was gay, but he didn&rsquo;t have the language to describe it until he snuck into the reference section of the LA County Library at age 10 and found a copy of Kinsey&rsquo;s <em>Sexual Behavior in the Human Male</em>.</p>
+      <div class="callout"><strong>Connection to ICLC&rsquo;s work:</strong> Kiyoshi&rsquo;s story begins with government-sanctioned injustice against an entire community &mdash; a reminder of why legal advocacy and civil rights protections matter.</div>
+    </div>
+  </div>
+
+  <div class="card" id="card-1" onclick="tog(1)">
+    <div class="card-header">
+      <div class="card-num" id="num-1">2</div>
+      <div><div class="card-era">1961 &ndash; 1968</div><div class="card-title">Marching with Martin Luther King Jr.</div></div>
+      <span class="card-arrow" id="arr-1">&#8964;</span>
+    </div>
+    <div class="card-body" id="body-1">
+      <p>Kiyoshi secured a full scholarship to the University of Pennsylvania in 1961 &mdash; but his real education happened in the streets. He met Dr. Martin Luther King Jr., Ralph Abernathy, and James Baldwin at the 1963 March on Washington, and worked closely with King until his assassination in 1968.</p>
+      <p>On March 16, 1965, he was severely beaten by Alabama state troopers during a voting rights demonstration in Montgomery. King briefly feared Kiyoshi was dead &mdash; the hospital refused to release any information on him. A gay orderly helped Kiyoshi sneak a statement to the press.</p>
+      <div class="callout"><strong>Did you know?</strong> Four months after nearly being killed in Montgomery, Kiyoshi was back in Philadelphia &mdash; participating in the first annual Reminder Day picket, which he also marked as his official coming out.</div>
+    </div>
+  </div>
+
+  <div class="card" id="card-2" onclick="tog(2)">
+    <div class="card-header">
+      <div class="card-num" id="num-2">3</div>
+      <div><div class="card-era">1968</div><div class="card-title">The Dog That Never Existed</div></div>
+      <span class="card-arrow" id="arr-2">&#8964;</span>
+    </div>
+    <div class="card-body" id="body-2">
+      <p>Kiyoshi was a creative strategist. To protest the use of napalm during the Vietnam War, he released an anonymous press release in April 1968 stating that a dog would be burned alive on the steps of UPenn&rsquo;s Van Pelt Library.</p>
+      <p>The story exploded. The ASPCA issued an angry statement. A sitting U.S. senator officially condemned the action. Roughly 2,000 people showed up &mdash; only to find leaflets that read: <em>&ldquo;You have saved a dog. Now, how about a child or a million children?&rdquo;</em></p>
+      <p>He was arrested by the Secret Service two days after returning from King&rsquo;s funeral for distributing a protest poster, and fought the charges for three years &mdash; until the Supreme Court ruled in <em>Cohen v. California</em> that provocative political speech is protected by the First Amendment.</p>
+    </div>
+  </div>
+
+  <div class="card" id="card-3" onclick="tog(3)">
+    <div class="card-header">
+      <div class="card-num" id="num-3">4</div>
+      <div><div class="card-era">1969 &ndash; 1970</div><div class="card-title">Co-Founding the Gay Liberation Front</div></div>
+      <span class="card-arrow" id="arr-3">&#8964;</span>
+    </div>
+    <div class="card-body" id="body-3">
+      <p>In the months following the Stonewall uprising, Kiyoshi co-founded the Gay Liberation Front (GLF) with Basil O&rsquo;Brien. The GLF was one of the most radical queer activist groups of its time &mdash; actively recruiting across race, class, and identity, and expressing solidarity with the Young Lords and the Black Panther Party.</p>
+      <p>In 1970, Kiyoshi represented the GLF as an openly gay delegate at the Black Panther Party convention in Philadelphia &mdash; one of the first moments of formal intersection between the Black liberation and gay liberation movements.</p>
+      <div class="callout"><strong>Intersectionality in action:</strong> Kiyoshi understood that liberation movements only succeed when they stand with each other. This was radical in 1970. It&rsquo;s still foundational today.</div>
+    </div>
+  </div>
+
+  <div class="card" id="card-4" onclick="tog(4)">
+    <div class="card-header">
+      <div class="card-num" id="num-4">5</div>
+      <div><div class="card-era">1980s &ndash; 1990s</div><div class="card-title">Fighting the AIDS Crisis with Information</div></div>
+      <span class="card-arrow" id="arr-4">&#8964;</span>
+    </div>
+    <div class="card-body" id="body-4">
+      <p>When the AIDS epidemic began, Kiyoshi shifted his focus entirely. He co-founded ACTUP&rsquo;s Philadelphia chapter and was diagnosed with AIDS himself in 1989 &mdash; likely contracting it in the early 1980s.</p>
+      <p>He taught himself to read cutting-edge research and medical literature, then translated it into plain language &mdash; founding the <em>Critical Path Newsletter</em>, one of the first publicly available resources for HIV information. He mailed it free of charge to thousands of subscribers worldwide, including hundreds of incarcerated individuals.</p>
+      <p>He then created one of the world&rsquo;s very first websites to share HIV and AIDS information &mdash; and expanded the project to provide free internet access to AIDS patients throughout Philadelphia. He also ran a 24-hour AIDS hotline, which he staffed himself.</p>
+      <div class="callout"><strong>Technology as justice:</strong> Decades before &ldquo;digital equity&rdquo; entered the nonprofit lexicon, Kiyoshi was building free internet infrastructure for the most vulnerable. His work resonates directly with ICLC&rsquo;s mission to remove barriers to access.</div>
+    </div>
+  </div>
+
+  <div class="card" id="card-5" onclick="tog(5)">
+    <div class="card-header">
+      <div class="card-num" id="num-5">6</div>
+      <div><div class="card-era">1999 &ndash; 2000</div><div class="card-title">One Last Act of Defiance</div></div>
+      <span class="card-arrow" id="arr-5">&#8964;</span>
+    </div>
+    <div class="card-body" id="body-5">
+      <p>Kiyoshi&rsquo;s last act of civil disobedience came on October 6, 1999 &mdash; protesting the U.S. government&rsquo;s threat to sanction countries attempting to manufacture affordable generic HIV medications.</p>
+      <p>He died on May 10, 2000 &mdash; the day after his 57th birthday &mdash; having never slowed down. His friend and fellow activist J. David Collard said Kiyoshi was one of those rare people who physiologically did not seem to need sleep.</p>
+      <p>In the margins of everything else, he also managed to serve as right-hand man to futurist Buckminster Fuller and become a nationally ranked Scrabble player.</p>
+      <div class="callout"><strong>His legacy:</strong> Kiyoshi Kuromiya embodied the belief that knowledge is power &mdash; and that power must be shared freely. He was a civil rights marcher, a queer liberationist, a technologist, and a caretaker. He never chose just one identity or one fight.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- QUIZ -->
+<div style="background:#0E316B; border-radius:10px; padding:24px; margin:8px 32px 20px;">
+  <p style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD716; margin:0 0 8px 0;">Quick Check</p>
+  <p style="font-family:'Playfair Display',Georgia,serif; font-size:19px; color:#fff; line-height:1.5; margin:0 0 18px 0;">What was the name of the newsletter Kiyoshi founded to share HIV and AIDS information with the public &mdash; including hundreds of people who were incarcerated?</p>
+  <div id="quiz-opts">
+    <button class="quiz-btn" onclick="answer(this,0)">The Stonewall Report</button>
+    <button class="quiz-btn" onclick="answer(this,1)">Critical Path Newsletter</button>
+    <button class="quiz-btn" onclick="answer(this,2)">The Liberation Times</button>
+    <button class="quiz-btn" onclick="answer(this,3)">ACT UP Bulletin</button>
+  </div>
+  <div class="quiz-feedback" id="quiz-fb"></div>
+</div>
+
+<!-- REFLECTION -->
+<div style="background:#fff; border-radius:10px; border:1px solid #ddd; padding:22px; margin:0 32px 20px;">
+  <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#0E316B; margin:0 0 8px 0;">Take a Moment to Reflect</h3>
+  <p style="font-size:15px; font-weight:600; color:#555; line-height:1.6; margin:0 0 14px 0;">Kiyoshi lived at the intersection of multiple marginalized identities and movements. Which part of his story resonates with you or connects to the work we do at Inner City Law Center?</p>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:4px;">
+    <button class="reflect-pill" onclick="reflect(this,'access')">Access to information</button>
+    <button class="reflect-pill" onclick="reflect(this,'intersect')">Intersectionality</button>
+    <button class="reflect-pill" onclick="reflect(this,'persist')">Persistence under hardship</button>
+    <button class="reflect-pill" onclick="reflect(this,'tech')">Technology as a tool for justice</button>
+    <button class="reflect-pill" onclick="reflect(this,'courage')">Courage to live openly</button>
+  </div>
+  <div class="reflect-response" id="ref-out"></div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:#fff; border-radius:10px; border:1px solid #ddd; padding:16px 20px; margin:0 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+  <p style="font-size:12px; color:#888; line-height:1.6; margin:0;">Content from <strong>Yesterqueers</strong> by Amanda W. Timpson &nbsp;&middot;&nbsp; <a href="https://www.youtube.com/@yesterqueers/videos" target="_blank" style="color:#0B409C;">youtube.com/@yesterqueers</a><br>Prepared by the ICLC DEIA Committee &nbsp;&middot;&nbsp; Pride Month 2026</p>
+  <a href="https://www.youtube.com/@yesterqueers/videos" target="_blank" style="background:#0E316B; color:#ffffff; font-size:15px; font-weight:700; padding:10px 20px; border-radius:6px; text-decoration:none; display:inline-block; white-space:nowrap;">Watch the Full Video &#8599;</a>
+</div>
+
+<script>
+var opened = new Set();
+
+function tog(i) {
+  var card  = document.getElementById('card-' + i);
+  var body  = document.getElementById('body-' + i);
+  var num   = document.getElementById('num-'  + i);
+  var arr   = document.getElementById('arr-'  + i);
+  var isOpen = card.classList.contains('open');
+  card.classList.toggle('open', !isOpen);
+  if (!isOpen) { opened.add(i); } else { opened.delete(i); }
+  var pct = Math.round((opened.size / 6) * 100);
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = opened.size + ' of 6 chapters opened';
+}
+
+var answered = false;
+function answer(btn, idx) {
+  if (answered) return;
+  answered = true;
+  var btns = document.getElementById('quiz-opts').querySelectorAll('button');
+  btns.forEach(function(b, i) {
+    b.disabled = true;
+    if (i === 1) b.classList.add('correct');
+    else if (i === idx) b.classList.add('wrong');
+  });
+  var fb = document.getElementById('quiz-fb');
+  fb.classList.add('show');
+  fb.textContent = idx === 1
+    ? '\u2713 Correct! The Critical Path Newsletter was one of the first public resources for HIV information. Kiyoshi mailed it free to thousands of people worldwide \u2014 including hundreds of incarcerated individuals \u2014 because he believed access to information was a matter of survival.'
+    : 'Not quite \u2014 the answer is the Critical Path Newsletter. Kiyoshi founded it after teaching himself to read complex medical research, then translating it into plain language so that anyone \u2014 especially the most isolated \u2014 could access potentially life-saving information.';
+}
+
+var reflections = {
+  access:    'Kiyoshi built one of the world\u2019s first public HIV websites and provided free internet access to AIDS patients in Philadelphia long before \u201cdigital equity\u201d was a recognized goal. At ICLC, we remove barriers to legal access every day \u2014 Kiyoshi reminds us that information itself is a form of justice.',
+  intersect: 'Kiyoshi never chose just one fight. He was Japanese American, gay, a civil rights marcher, a queer liberationist, and an AIDS activist \u2014 and he understood that those struggles were inseparable. His presence at the 1970 Black Panther convention as an openly gay delegate was radical and intentional.',
+  persist:   'Beaten nearly to death in Montgomery. Diagnosed with AIDS. Arrested by the Secret Service. Kiyoshi responded to every setback by working harder and going further. He staffed a 24-hour AIDS hotline alone and kept operating his medical marijuana buyers club after losing a federal lawsuit.',
+  tech:      'Decades before nonprofits talked about digital access, Kiyoshi was building free internet infrastructure for people dying of AIDS. He created one of the world\u2019s first public health websites \u2014 not as a project, but as an act of survival for his community.',
+  courage:   'Kiyoshi came out publicly at the first annual Reminder Day picket in 1965 \u2014 just four months after being hospitalized from a beating in Montgomery. He wasn\u2019t waiting for conditions to be safe. For him, visibility was part of the resistance.'
+};
+
+function reflect(btn, key) {
+  document.querySelectorAll('.reflect-pill').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  var el = document.getElementById('ref-out');
+  el.textContent = reflections[key];
+  el.classList.add('show');
+}
+</script>
+</body>
+</html>
