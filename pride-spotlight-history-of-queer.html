@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The History of the Word "Queer" | ICLC DEIA Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: #f7f5f0;
+      color: #0E1E42;
+      line-height: 1.75;
+    }
+
+    /* ── PRIDE STRIPE ── */
+    .pride-stripe {
+      height: 9px;
+      background: linear-gradient(to right,
+        #E40303 0%,
+        #E40303 14.28%,
+        #FF8C00 14.28%,
+        #FF8C00 28.56%,
+        #FFED00 28.56%,
+        #FFED00 42.84%,
+        #008026 42.84%,
+        #008026 57.12%,
+        #004DFF 57.12%,
+        #004DFF 71.4%,
+        #750787 71.4%,
+        #750787 100%
+      );
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(150deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 44px 28px 40px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      font-style: italic;
+      color: #FFD716;
+    }
+
+    .header-byline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 10px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    /* ── VIDEO ── */
+    .video-section {
+      margin: 32px 0 26px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(14, 49, 107, 0.18);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-top: 9px;
+      font-style: italic;
+    }
+
+    /* ── INTRO BLURB ── */
+    .intro-blurb {
+      background: #ffffff;
+      border-left: 4px solid #0B409C;
+      border-radius: 0 6px 6px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+      color: #0E1E42;
+      line-height: 1.75;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* ── PROGRESS TRACKER ── */
+    .progress-section {
+      margin-bottom: 22px;
+    }
+
+    .progress-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0E316B;
+      margin-bottom: 7px;
+    }
+
+    .progress-bar-bg {
+      background: #dde2ec;
+      height: 7px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      background: linear-gradient(to right, #0B409C, #FFD716);
+      transition: width 0.45s ease;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dde2ec;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .progress-dot.done {
+      background: #0B409C;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 17px 20px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f0f4ff;
+    }
+
+    .accordion-header.active {
+      background: #0E316B;
+    }
+
+    .chapter-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFD716;
+      background: #0B409C;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .accordion-header.active .chapter-num {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFD716;
+    }
+
+    .chapter-text {
+      flex: 1;
+    }
+
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0E316B;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-title {
+      color: #ffffff;
+    }
+
+    .chapter-era {
+      font-size: 0.73rem;
+      font-style: italic;
+      color: #8a96a8;
+      margin-top: 2px;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-era {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .accordion-chevron {
+      font-size: 0.9rem;
+      color: #0B409C;
+      transition: transform 0.3s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .accordion-header.active .accordion-chevron {
+      color: #FFD716;
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 22px 26px;
+      font-size: 0.95rem;
+      color: #0E1E42;
+      line-height: 1.8;
+      border-top: 2px solid #eef2ff;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .accordion-body p {
+      margin-bottom: 14px;
+    }
+
+    .accordion-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pullquote {
+      border-left: 3px solid #FFD716;
+      background: #f7f5f0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.94rem;
+      color: #0E316B;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.7;
+    }
+
+    /* ── COMPLETION BANNER ── */
+    .completion-banner {
+      display: none;
+      background: #0B409C;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px 22px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      box-shadow: 0 4px 14px rgba(11, 64, 156, 0.3);
+    }
+
+    .completion-banner.show {
+      display: block;
+    }
+
+    /* ── REFLECTION ── */
+    .reflection {
+      background: linear-gradient(145deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 34px 30px;
+      border-radius: 10px;
+      margin-top: 34px;
+      box-shadow: 0 6px 20px rgba(14, 49, 107, 0.25);
+    }
+
+    .reflection-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 10px;
+    }
+
+    .reflection h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .reflection p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+    }
+
+    .reflection p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 0.76rem;
+      color: #8a96a8;
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: #0B409C;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Pride Stripe -->
+<div class="pride-stripe"></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-eyebrow">ICLC DEIA Spotlight &nbsp;·&nbsp; Pride Month 2026</div>
+  <h1>The History of the Word <em>"Queer"</em></h1>
+  <div class="header-byline">Presented by Yesterqueers &nbsp;·&nbsp; Amanda W. Timpson, Public Historian</div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Video -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/bgf3MCmKilU"
+        title="The History of the Word Queer | Yesterqueers"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </div>
+    <div class="video-caption">Video source: Yesterqueers by Amanda W. Timpson &nbsp;·&nbsp; Published June 2026</div>
+  </div>
+
+  <!-- Intro Blurb -->
+  <div class="intro-blurb">
+    Few words in the English language carry as much history, pain, and power as <em>queer</em>. Stretching back to the 14th century, it has served as a descriptor for the strange, a weapon turned against the vulnerable, and ultimately, a banner of radical self-determination. Explore six centuries of that journey below.
+  </div>
+
+  <!-- Progress Tracker -->
+  <div class="progress-section">
+    <div class="progress-label">Your Progress &mdash; <span id="progress-text">0 of 6 chapters</span></div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-bar"></div>
+    </div>
+    <div class="progress-dots" id="progress-dots">
+      <div class="progress-dot" data-dot="0"></div>
+      <div class="progress-dot" data-dot="1"></div>
+      <div class="progress-dot" data-dot="2"></div>
+      <div class="progress-dot" data-dot="3"></div>
+      <div class="progress-dot" data-dot="4"></div>
+      <div class="progress-dot" data-dot="5"></div>
+    </div>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 0)">
+      <div class="chapter-num">1</div>
+      <div class="chapter-text">
+        <div class="chapter-title">A Word as Old as English Itself</div>
+        <div class="chapter-era">14th &ndash; 16th Century</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>The word <em>queer</em> is far older than most people realize. According to the Oxford English Dictionary — the gold standard for tracking the history of the English language — it first appears around <strong>1390 as a verb</strong>, meaning to question or investigate.</p>
+      <p>As an adjective, meaning <em>odd</em> or <em>eccentric</em>, it arrives in the 16th century. Its earliest known written use in that form dates to around <strong>1513</strong>, appearing in <em>The Flyting of Dunbar and Kennedy</em> — a Scottish poetic duel where two poets battled in verse and the audience chose the winner. Think of it as a 16th-century rap battle.</p>
+      <p>For the next nearly 400 years, <em>queer</em> continued in this vein: strange, excessive, aberrant, over-the-top, untrustworthy. It was a word of deviance — associated with sex workers, counterfeit money, the vague feeling of being unwell, and the state of being drunk. It described things that did not fit the expected order of things.</p>
+      <div class="pullquote">"For almost 400 years, queer was used to describe things that are strange or excessive, aberrant, over-the-top, untrustworthy. It's a word that is used to describe deviance." &mdash; Amanda W. Timpson</div>
+    </div>
+  </div>
+
+  <!-- Chapter 2 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 1)">
+      <div class="chapter-num">2</div>
+      <div class="chapter-text">
+        <div class="chapter-title">The Courtroom That Changed Everything</div>
+        <div class="chapter-era">1895</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>It was not until <strong>1895</strong> that <em>queer</em> was first weaponized as a slur specifically targeting gay and bisexual men — and it happened in a courtroom.</p>
+      <p>During <strong>Oscar Wilde's criminal trial for indecency</strong>, a letter written by the Marquess of Queensberry was read aloud in court. In it, Queensberry expressed his disgust at Wilde's relationship with his son, Lord Alfred Douglas, describing Wilde and his contemporaries as <em>"snob queers."</em></p>
+      <p>That moment is often treated as the origin point of <em>queer</em> as a slur — and the start of 160-plus years of the word being used exclusively to harm, before activists "reclaimed" it at the end of the 20th century. The history is more complicated than that, and far more interesting.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 2)">
+      <div class="chapter-num">3</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Both Things at Once</div>
+        <div class="chapter-era">Early 1900s &ndash; 1930s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Contrary to what many people believe, the Oscar Wilde trial did not launch more than a century of <em>queer</em> being used only as a slur. In fact, <strong>queer has functioned simultaneously as an affirming in-group identifier and as an out-group slur since at least the early 1900s.</strong></p>
+      <p>In <strong>1914</strong>, following social vagrant investigations in Long Beach, California, the <em>Sacramento Bee</em> quoted men referring to themselves and their social circles as <em>queer</em> — while also using the word as a derogatory descriptor. Sometimes both appeared in the same article.</p>
+      <p>In <strong>1934</strong>, a letter discovered after a police raid on London's Caravan Club was written by a man named Cyril Kurdleon, who used the word <em>queer</em> to describe his own sexuality.</p>
+      <div class="pullquote">"Parts of our community have drawn power from identifying themselves as queer for at least a century." &mdash; Amanda W. Timpson</div>
+      <p>The reclamation was not a 1980s invention. It was already underway decades before.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 3)">
+      <div class="chapter-num">4</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Radical Reclamation: The AIDS Crisis</div>
+        <div class="chapter-era">Late 1980s &ndash; 1990</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>By the late 1980s, activists radicalized by the AIDS crisis deliberately embraced the word <em>queer</em> as a unifying banner for what was then a deeply fractured community.</p>
+      <p>Using <em>queer</em> was both a <strong>rejection</strong> — of liberal conservatism and the Christian nationalism taking hold in government — and an <strong>embrace</strong>: a celebration of the revolutionary act of simply existing as an LGBTQ+ person in a time when doing so was genuinely dangerous.</p>
+      <p>In <strong>June 1990</strong>, an anonymous pamphlet called <em>Queers Read This</em> was distributed at the New York City Pride Parade. Its opening lines captured the weight of that moment:</p>
+      <div class="pullquote">"How can I tell you? How can I convince you, brother, sister, that your life is in danger? That every day you wake up alive, relatively happy, and a functioning human being — you are committing a rebellious act. You, as an alive and functioning queer, are revolutionary." &mdash; Queers Read This, 1990</div>
+    </div>
+  </div>
+
+  <!-- Chapter 5 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 4)">
+      <div class="chapter-num">5</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Queer as Identity, Queer as Theory</div>
+        <div class="chapter-era">1990s &ndash; 2000s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>As <em>queer</em> became a political identity, academics took notice. Queer theory emerged as a framework for <strong>disrupting heteronormative, binary understandings of power</strong> — broadening the lens to include the intersections of sexuality, gender, race, and class.</p>
+      <p>To <em>queer</em> something — used as a verb — now means to analyze or interpret it from a queer perspective: to investigate whether it can be made more accessible and relevant to people with diverse gender and sexual identities. It is not just a label. It is a method.</p>
+      <p>The word had moved from insult, to slogan, to scholarly framework — carrying its political edge at every step.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 6 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 5)">
+      <div class="chapter-num">6</div>
+      <div class="chapter-text">
+        <div class="chapter-title">A Word That Feels Like Home</div>
+        <div class="chapter-era">Present</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Today, <em>queer</em> is most often used as an affirming, inclusive umbrella term for the entire LGBTQ+ community. Historians like Amanda also use it to describe the genders and sexualities of people in the past whose lived experiences do not map cleanly onto modern categories — because, as she puts it, <em>we have always been here and we have always been queer.</em></p>
+      <div class="pullquote">"Queer is the first word that really felt like home because it describes both my sexuality and my worldview." &mdash; Amanda W. Timpson</div>
+      <p>She is also clear that for many people — particularly Gen X and older generations — the word still carries the sting of having been used as a weapon. <strong>Both things can coexist.</strong> As Australian historian Dr. Timothy Jones observes, liberating words from non-affirming religious, clinical, or colloquial contexts and giving them new meaning is one of the defining characteristics of LGBTQ+ history.</p>
+      <p>Almost every word we use today to describe ourselves is a reclaimed slur or a repurposed clinical term. That act of reclamation — of taking back the power of language — is not new. It is one of the oldest things our community does.</p>
+    </div>
+  </div>
+
+  <!-- Completion Banner -->
+  <div class="completion-banner" id="completion-banner">
+    &#127752; You've explored all 6 chapters. Thank you for learning with us this Pride Month.
+  </div>
+
+  <!-- ICLC Reflection -->
+  <div class="reflection">
+    <div class="reflection-eyebrow">ICLC Connection</div>
+    <h2>Why Language Matters to Our Work</h2>
+    <p>At Inner City Law Center, we represent clients who have experienced firsthand what it means to have their identity used against them — through discriminatory housing policies, biased legal decisions, and the everyday language of exclusion. The history of the word <em>queer</em> is, in many ways, the history of that experience.</p>
+    <p>Language shapes power. Words that were weaponized to dehumanize have been transformed — through courage, community, and persistence — into tools of solidarity and self-determination. That transformation does not happen passively. It requires people who refuse to accept the meaning others have assigned to them.</p>
+    <p>That refusal is at the heart of what our clients do every time they walk through our doors. Reclaiming identity is an act of resistance. So is showing up to fight for the people who do it.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Video content courtesy of <a href="https://www.youtube.com/@yesterqueers" target="_blank" rel="noopener">Yesterqueers</a> by Amanda W. Timpson, Public Historian.<br/>
+    Sources: Oxford English Dictionary &nbsp;·&nbsp; <em>Queers Read This</em> (1990) &nbsp;·&nbsp; Dr. Timothy Jones, The Conversation (2023)<br/>
+    ICLC DEIA Advisory Group &nbsp;·&nbsp; Pride Month 2026
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const opened = new Array(6).fill(false);
+
+  function toggleChapter(btn, index) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+
+    // Close all panels first
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+
+    // Open the clicked one if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('active');
+      opened[index] = true;
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = opened.filter(Boolean).length;
+    const pct = (count / 6) * 100;
+
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = count + ' of 6 chapters';
+
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i) {
+      dot.classList.toggle('done', opened[i]);
+    });
+
+    if (count === 6) {
+      document.getElementById('completion-banner').classList.add('show');
+    }
+  }
+</script>
+
+</body>
+</html>
