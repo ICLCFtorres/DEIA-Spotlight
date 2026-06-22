@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jackie Shane | ICLC DEIA Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: #f7f5f0;
+      color: #0E1E42;
+      line-height: 1.75;
+    }
+
+    /* ── PRIDE STRIPE ── */
+    .pride-stripe {
+      height: 9px;
+      background: linear-gradient(to right,
+        #E40303 0%,
+        #E40303 14.28%,
+        #FF8C00 14.28%,
+        #FF8C00 28.56%,
+        #FFED00 28.56%,
+        #FFED00 42.84%,
+        #008026 42.84%,
+        #008026 57.12%,
+        #004DFF 57.12%,
+        #004DFF 71.4%,
+        #750787 71.4%,
+        #750787 100%
+      );
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(150deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 44px 28px 40px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      font-style: italic;
+      color: #FFD716;
+    }
+
+    .header-byline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 10px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    /* ── VIDEO ── */
+    .video-section {
+      margin: 32px 0 26px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(14, 49, 107, 0.18);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-top: 9px;
+      font-style: italic;
+    }
+
+    /* ── INTRO BLURB ── */
+    .intro-blurb {
+      background: #ffffff;
+      border-left: 4px solid #0B409C;
+      border-radius: 0 6px 6px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+      color: #0E1E42;
+      line-height: 1.75;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* ── PROGRESS TRACKER ── */
+    .progress-section {
+      margin-bottom: 22px;
+    }
+
+    .progress-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0E316B;
+      margin-bottom: 7px;
+    }
+
+    .progress-bar-bg {
+      background: #dde2ec;
+      height: 7px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      background: linear-gradient(to right, #0B409C, #FFD716);
+      transition: width 0.45s ease;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dde2ec;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .progress-dot.done {
+      background: #0B409C;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 17px 20px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f0f4ff;
+    }
+
+    .accordion-header.active {
+      background: #0E316B;
+    }
+
+    .chapter-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFD716;
+      background: #0B409C;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .accordion-header.active .chapter-num {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFD716;
+    }
+
+    .chapter-text {
+      flex: 1;
+    }
+
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0E316B;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-title {
+      color: #ffffff;
+    }
+
+    .chapter-era {
+      font-size: 0.73rem;
+      font-style: italic;
+      color: #8a96a8;
+      margin-top: 2px;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-era {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .accordion-chevron {
+      font-size: 0.9rem;
+      color: #0B409C;
+      transition: transform 0.3s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .accordion-header.active .accordion-chevron {
+      color: #FFD716;
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 22px 26px;
+      font-size: 0.95rem;
+      color: #0E1E42;
+      line-height: 1.8;
+      border-top: 2px solid #eef2ff;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .accordion-body p {
+      margin-bottom: 14px;
+    }
+
+    .accordion-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pullquote {
+      border-left: 3px solid #FFD716;
+      background: #f7f5f0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.94rem;
+      color: #0E316B;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.7;
+    }
+
+    /* ── COMPLETION BANNER ── */
+    .completion-banner {
+      display: none;
+      background: #0B409C;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px 22px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      box-shadow: 0 4px 14px rgba(11, 64, 156, 0.3);
+    }
+
+    .completion-banner.show {
+      display: block;
+    }
+
+    /* ── REFLECTION ── */
+    .reflection {
+      background: linear-gradient(145deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 34px 30px;
+      border-radius: 10px;
+      margin-top: 34px;
+      box-shadow: 0 6px 20px rgba(14, 49, 107, 0.25);
+    }
+
+    .reflection-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 10px;
+    }
+
+    .reflection h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .reflection p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+    }
+
+    .reflection p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 0.76rem;
+      color: #8a96a8;
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: #0B409C;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Pride Stripe -->
+<div class="pride-stripe"></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-eyebrow">ICLC DEIA Spotlight &nbsp;·&nbsp; Pride Month 2026</div>
+  <h1>Jackie Shane: <em>The Tornado from Nashville</em></h1>
+  <div class="header-byline">Presented by Yesterqueers &nbsp;·&nbsp; Amanda W. Timpson, Public Historian</div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Video -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/ZO_FULoUvII"
+        title="Jackie Shane | Yesterqueers"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </div>
+    <div class="video-caption">Video source: Yesterqueers by Amanda W. Timpson &nbsp;·&nbsp; Published February 2026</div>
+  </div>
+
+  <!-- Intro Blurb -->
+  <div class="intro-blurb">
+    She was kidnapped by the mob, toured with Etta James, turned down Ed Sullivan, and packed clubs from Nashville to Toronto, all while building one of the most singular voices in 1960s R&B. Then, in 1971, she vanished. Jackie Shane's story is one of talent, defiance, and the exhausting cost of being unapologetically herself in a world that wasn't ready for her. Explore her story in six chapters below.
+  </div>
+
+  <!-- Progress Tracker -->
+  <div class="progress-section">
+    <div class="progress-label">Your Progress &mdash; <span id="progress-text">0 of 6 chapters</span></div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-bar"></div>
+    </div>
+    <div class="progress-dots" id="progress-dots">
+      <div class="progress-dot" data-dot="0"></div>
+      <div class="progress-dot" data-dot="1"></div>
+      <div class="progress-dot" data-dot="2"></div>
+      <div class="progress-dot" data-dot="3"></div>
+      <div class="progress-dot" data-dot="4"></div>
+      <div class="progress-dot" data-dot="5"></div>
+    </div>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 0)">
+      <div class="chapter-num">1</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Raised by Music, Raised by Love</div>
+        <div class="chapter-era">Nashville, 1940s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Jackie Shane was born in Nashville, Tennessee, on May 15, 1940. Her mother, Gussie, was only sixteen when Jackie was born and wasn't particularly interested in parenting. The steady, loving presence in Jackie's early life instead came from her aunt Jessie, whom Jackie called "Mother," and from her grandparents.</p>
+      <p>Music filled her grandparents' home. The radio played all day, and while Jackie's grandmother did housework, she sang in a style Jackie described as a blend of humming and singing. Jackie inherited that gift early. By age eight, she had a natural enough voice that she was invited to join the adult choir at their church, on her own terms: she agreed to sing, but refused to stay for the sermon or give any of her allowance to the collection plate.</p>
+      <p>That early negotiation set the tone for the rest of her life. Jackie's lifelong motto became simple and absolute: do what you want. And she did.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 1)">
+      <div class="chapter-num">2</div>
+      <div class="chapter-text">
+        <div class="chapter-title">"You're Magnificent"</div>
+        <div class="chapter-era">Nashville, Early 1950s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Jackie was assigned male at birth, but as a young child she didn't think much about being different. She gravitated naturally toward dress-up, heels, and makeup, habits her grandmother and aunt Jessie both encouraged rather than discouraged. As she got older, Jackie began describing her experience of gender as feeling trapped in the wrong body.</p>
+      <p>At thirteen, when Jackie decided she wanted to wear makeup to school, her aunt Jessie supported her without hesitation. Jessie went further than acceptance. She took Jackie to parts of Nashville where she could see other gender-nonconforming people living their lives, and told her something Jackie carried for the rest of her life: to look at how people arrive in this world, then look at herself, and recognize she had nothing to be ashamed of.</p>
+      <div class="pullquote">"You're magnificent." &mdash; Jackie's aunt Jessie, to a thirteen-year-old Jackie</div>
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 2)">
+      <div class="chapter-num">3</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Cards, Drums, and a Reason to Leave</div>
+        <div class="chapter-era">Nashville, Mid-to-Late 1950s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>As a teenager, Jackie's determination to never depend on anyone financially led her to befriend a professional gambler and learn the trade herself. She found the money came easily, since people consistently underestimated her. But she walked away from that life after her friend killed two people in a dispute.</p>
+      <p>Music offered a better path. At fifteen, Jackie formed a trio with pianist Louis Lavelle and guitarist Les Monday, singing while playing drums standing up, tying her kick drum to her stool so it wouldn't go flying as she moved. Within two weeks, the trio had a standing two-hour Saturday block on Nashville's WVOL and bookings all over town. Jackie's star rose quickly. She was once removed from a Florida tour for upstaging the headliner.</p>
+      <p>But there was a ceiling on how far she could rise as a queer Black performer in the Jim Crow South. In 1958, after witnessing a brutal act of racial violence at a bus stop, Jackie knew it was time to leave Nashville for good.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 3)">
+      <div class="chapter-num">4</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Carnival Tents, Border Towns, and a Brush With the Mob</div>
+        <div class="chapter-era">1958 &ndash; 1959</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Jackie's exit from Nashville took an unexpected route: she joined a traveling carnival, performing in its "soul tent." The carnival carried her first to Cornwall, Ontario, then to Montreal in 1959, where she and her band left the carnival behind for a two-month club booking on the Main.</p>
+      <p>Like many major cities of the era, Montreal's entertainment venues in the 1950s and 60s were largely controlled by organized crime, and Jackie's talent and beauty made her a target for men accustomed to getting what they wanted. One morning, a group of men kidnapped Jackie and her band from their boarding house and drove them toward the U.S. border. Her bandmates were forced back across into the United States, while Jackie was taken to a remote farmhouse, where a mob boss informed her that he intended to "take care of her" and make her a star, on the condition that she stay with him. The alternative, he made clear, was death.</p>
+      <p>At nineteen years old, Jackie thought fast. She told him she was underage and that any recording or performance contract would require her parents' signature. He drove her back to Montreal. She never saw him again.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 5 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 4)">
+      <div class="chapter-num">5</div>
+      <div class="chapter-text">
+        <div class="chapter-title">A Tornado Coming Through the Place</div>
+        <div class="chapter-era">1959 &ndash; 1971</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>By late 1959, Jackie had joined Frank Motley and the Motley Crew, selling out shows in Boston and opening for Etta James, the Temptations, and Marvin Gaye. She was reportedly so magnetic onstage that Etta James once joked she should have gone on first.</p>
+      <p>In September 1961, the act arrived in Toronto, and Jackie knew instantly she'd found home. The city embraced her back, with lines forming around the block for her shows at the Holiday Tavern. Musician Eric Mercury later described her stage presence in unforgettable terms.</p>
+      <div class="pullquote">"It was like a tornado coming through the place." &mdash; Eric Mercury, on Jackie's performances</div>
+      <p>For the next decade, Jackie performed across Los Angeles, Boston, and Montreal, sharing bills with Etta James, T-Bone Walker, and Moms Mabley, always returning to Toronto as her home base. She was also famously selective about which opportunities she'd accept. She declined American Bandstand because the show only let white teenagers dance on camera. She turned down the Ed Sullivan Show after being told she couldn't wear makeup, countering by asking whether Sullivan had made the same demand of the Beatles' haircuts. She even passed on an invitation to join George Clinton's Funkadelic, finding the band "a bit much."</p>
+      <p>Wary of recording contracts after being burned early in her career, Jackie never released a full studio album. Still, her single "Any Other Way" climbed to No. 2 on Canada's pop charts, and a live album recorded at the Sapphire Tavern in 1967 captured what fans loved most: not just her voice, but her unscripted, fearless monologues between songs.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 6 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 5)">
+      <div class="chapter-num">6</div>
+      <div class="chapter-text">
+        <div class="chapter-title">The Disappearing Act</div>
+        <div class="chapter-era">1971 &ndash; 2019</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Jackie Shane gave her final performance in Toronto in December 1971. Within days, she had vanished, so completely that even her own bandmates didn't know where she'd gone. Rumors filled the silence for decades: that she'd been murdered, that she'd drowned off the California coast. None of it was true.</p>
+      <p>The real reason was exhaustion. Living authentically as a Black trans woman, in an industry and a country that criminalized and belittled both her Blackness and her queerness, had worn her down. The language to fully describe who she was didn't yet exist publicly. Her advertising and legal paperwork referred to her as a man, lumping her in with drag performers and flamboyant entertainers like Little Richard. Sometimes she was mistaken for a butch lesbian instead, which wasn't much better. Defending the identity she had built for herself, night after night, in front of crowds who often misunderstood her, had become too much to carry.</p>
+      <p>So she stopped. Jackie and her partner at the time, Dan Matlock, moved to Pasadena, California, near her aunt Jessie, so Jackie could simply live as a woman, a wife, rather than a public commodity. After the relationship ended, Jackie and Jessie returned to Nashville in 1978 to care for Jackie's ailing mother and stepfather. After her mother's death, Jackie remained in Nashville and largely withdrew from public life.</p>
+      <p>The world rediscovered her in 2010, when a CBC Radio documentary renewed interest in her music and revealed she was still alive. In 2017, Numero Group released a compilation of her recordings, including previously unheard demos, earning a Grammy nomination for Best Historical Album. Jackie Shane died on February 21, 2019, at age seventy-eight. A documentary on her life, executive produced by Elliot Page and featuring interviews from her final year, was released in 2024, finally giving her the telling her story deserved.</p>
+    </div>
+  </div>
+
+  <!-- Completion Banner -->
+  <div class="completion-banner" id="completion-banner">
+    &#127752; You've explored all 6 chapters. Thank you for learning with us this Pride Month.
+  </div>
+
+  <!-- ICLC Reflection -->
+  <div class="reflection">
+    <div class="reflection-eyebrow">ICLC Connection</div>
+    <h2>Why Jackie Shane's Story Matters to Our Work</h2>
+    <p>Jackie Shane's story is, at its core, a story about the cost of being forced to defend your own identity in spaces that refuse to recognize it. She built an extraordinary career while navigating racism, the threat of violence, and an industry that had no framework for who she actually was. Eventually, that constant defense became unsustainable, and she chose to walk away rather than keep paying that price.</p>
+    <p>At Inner City Law Center, we see that same exhaustion in our clients every day, people who are forced to repeatedly justify their housing, their families, their safety, and their right to simply exist as themselves. The systems they navigate are not always as overtly hostile as 1960s Jim Crow Nashville, but the underlying demand, to prove your right to belong, is the same.</p>
+    <p>Jackie Shane eventually got to live quietly, on her own terms, away from a public that misunderstood her. Many of our clients are still fighting for that same basic right. Our work exists to make that fight a little more winnable.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Video content courtesy of <a href="https://www.youtube.com/@yesterqueers" target="_blank" rel="noopener">Yesterqueers</a> by Amanda W. Timpson, Public Historian.<br/>
+    Sources: Mabbott & Rosenberg-Lee, <em>Any Other Way: The Jackie Shane Story</em> (2024) &nbsp;·&nbsp; Numero Group &nbsp;·&nbsp; NPR &nbsp;·&nbsp; The New York Times<br/>
+    ICLC DEIA Advisory Group &nbsp;·&nbsp; Pride Month 2026
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const opened = new Array(6).fill(false);
+
+  function toggleChapter(btn, index) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+
+    // Close all panels first
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+
+    // Open the clicked one if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('active');
+      opened[index] = true;
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = opened.filter(Boolean).length;
+    const pct = (count / 6) * 100;
+
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = count + ' of 6 chapters';
+
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i) {
+      dot.classList.toggle('done', opened[i]);
+    });
+
+    if (count === 6) {
+      document.getElementById('completion-banner').classList.add('show');
+    }
+  }
+</script>
+
+</body>
+</html>
