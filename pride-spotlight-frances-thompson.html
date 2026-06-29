@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frances Thompson | ICLC DEIA Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: #f7f5f0;
+      color: #0E1E42;
+      line-height: 1.75;
+    }
+
+    /* ── PRIDE STRIPE ── */
+    .pride-stripe {
+      height: 9px;
+      background: linear-gradient(to right,
+        #E40303 0%,
+        #E40303 14.28%,
+        #FF8C00 14.28%,
+        #FF8C00 28.56%,
+        #FFED00 28.56%,
+        #FFED00 42.84%,
+        #008026 42.84%,
+        #008026 57.12%,
+        #004DFF 57.12%,
+        #004DFF 71.4%,
+        #750787 71.4%,
+        #750787 100%
+      );
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(150deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 44px 28px 40px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      font-style: italic;
+      color: #FFD716;
+    }
+
+    .header-byline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 10px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    /* ── VIDEO ── */
+    .video-section {
+      margin: 32px 0 26px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(14, 49, 107, 0.18);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-top: 9px;
+      font-style: italic;
+    }
+
+    /* ── INTRO BLURB ── */
+    .intro-blurb {
+      background: #ffffff;
+      border-left: 4px solid #0B409C;
+      border-radius: 0 6px 6px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+      color: #0E1E42;
+      line-height: 1.75;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .content-note {
+      background: #fdf3ea;
+      border-left: 4px solid #FF8C00;
+      border-radius: 0 6px 6px 0;
+      padding: 14px 22px;
+      margin-bottom: 28px;
+      font-size: 0.86rem;
+      color: #5c4226;
+      line-height: 1.6;
+    }
+
+    /* ── PROGRESS TRACKER ── */
+    .progress-section {
+      margin-bottom: 22px;
+    }
+
+    .progress-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0E316B;
+      margin-bottom: 7px;
+    }
+
+    .progress-bar-bg {
+      background: #dde2ec;
+      height: 7px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      background: linear-gradient(to right, #0B409C, #FFD716);
+      transition: width 0.45s ease;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dde2ec;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .progress-dot.done {
+      background: #0B409C;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 17px 20px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f0f4ff;
+    }
+
+    .accordion-header.active {
+      background: #0E316B;
+    }
+
+    .chapter-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFD716;
+      background: #0B409C;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .accordion-header.active .chapter-num {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFD716;
+    }
+
+    .chapter-text {
+      flex: 1;
+    }
+
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0E316B;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-title {
+      color: #ffffff;
+    }
+
+    .chapter-era {
+      font-size: 0.73rem;
+      font-style: italic;
+      color: #8a96a8;
+      margin-top: 2px;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-era {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .accordion-chevron {
+      font-size: 0.9rem;
+      color: #0B409C;
+      transition: transform 0.3s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .accordion-header.active .accordion-chevron {
+      color: #FFD716;
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 22px 26px;
+      font-size: 0.95rem;
+      color: #0E1E42;
+      line-height: 1.8;
+      border-top: 2px solid #eef2ff;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .accordion-body p {
+      margin-bottom: 14px;
+    }
+
+    .accordion-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pullquote {
+      border-left: 3px solid #FFD716;
+      background: #f7f5f0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.94rem;
+      color: #0E316B;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.7;
+    }
+
+    /* ── COMPLETION BANNER ── */
+    .completion-banner {
+      display: none;
+      background: #0B409C;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px 22px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      box-shadow: 0 4px 14px rgba(11, 64, 156, 0.3);
+    }
+
+    .completion-banner.show {
+      display: block;
+    }
+
+    /* ── REFLECTION ── */
+    .reflection {
+      background: linear-gradient(145deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 34px 30px;
+      border-radius: 10px;
+      margin-top: 34px;
+      box-shadow: 0 6px 20px rgba(14, 49, 107, 0.25);
+    }
+
+    .reflection-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 10px;
+    }
+
+    .reflection h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .reflection p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+    }
+
+    .reflection p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 0.76rem;
+      color: #8a96a8;
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: #0B409C;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Pride Stripe -->
+<div class="pride-stripe"></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-eyebrow">ICLC DEIA Spotlight &nbsp;·&nbsp; Pride Month 2026</div>
+  <h1>Frances Thompson: <em>A Voice Before Congress</em></h1>
+  <div class="header-byline">Presented by Yesterqueers &nbsp;·&nbsp; Amanda W. Timpson, Public Historian</div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Video -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/11I5XDGNPNc"
+        title="Frances Thompson | Yesterqueers"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </div>
+    <div class="video-caption">Video source: Yesterqueers by Amanda W. Timpson &nbsp;·&nbsp; Published June 2026</div>
+  </div>
+
+  <!-- Intro Blurb -->
+  <div class="intro-blurb">
+    In 1866, a formerly enslaved, disabled Black woman named Frances Thompson became the first transgender woman on record to testify before a congressional committee. Her testimony, given just months after the Civil War ended, helped shift national sentiment toward the passage of the 14th Amendment. A decade later, the same state that once heard her testify would arrest, examine, and punish her for the way she lived. Explore her story in six chapters below.
+  </div>
+
+  <!-- Content Note -->
+  <div class="content-note">
+    A note before you begin: this spotlight discusses racial violence and a documented sexual assault as part of historical congressional testimony. It is presented factually and without graphic detail, consistent with the historical record.
+  </div>
+
+  <!-- Progress Tracker -->
+  <div class="progress-section">
+    <div class="progress-label">Your Progress &mdash; <span id="progress-text">0 of 6 chapters</span></div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-bar"></div>
+    </div>
+    <div class="progress-dots" id="progress-dots">
+      <div class="progress-dot" data-dot="0"></div>
+      <div class="progress-dot" data-dot="1"></div>
+      <div class="progress-dot" data-dot="2"></div>
+      <div class="progress-dot" data-dot="3"></div>
+      <div class="progress-dot" data-dot="4"></div>
+      <div class="progress-dot" data-dot="5"></div>
+    </div>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 0)">
+      <div class="chapter-num">1</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Memphis in the Aftermath of War</div>
+        <div class="chapter-era">1862 &ndash; 1866</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>The Civil War formally ended in the spring of 1865, but Memphis, Tennessee had already been under Union occupation since 1862, guarded in part by Black military regiments. That early capture made the city a refuge for people escaping enslavement, and Memphis's Black population quadrupled between 1862 and 1866, with most new arrivals crowded into what amounted to four refugee camps.</p>
+      <p>The wartime collapse of the cotton economy had devastated West Tennessee, and a new wave of Irish immigrants was now competing with both Black and white residents for scarce jobs. Resentment among white residents had been building since the occupation began, and by 1866 it had reached a breaking point. A bitter power struggle, among the largely Irish police force, white city officials and business owners, and the mostly Black Union forces stationed there, made an already volatile situation worse.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 1)">
+      <div class="chapter-num">2</div>
+      <div class="chapter-text">
+        <div class="chapter-title">"Aunt Crutchie" of Gayoso Street</div>
+        <div class="chapter-era">Circa 1840 &ndash; 1866</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Frances Thompson was born around 1840, likely in Alabama, and raised in Maryland. In her later congressional testimony, she stated that everyone in her household except her mistress had died serving in the Confederate Army. How she ended up in Memphis is unknown, but by May 1866, around age 26, she was living there as a freedwoman.</p>
+      <p>Frances got around using crutches, due to a condition she described as cancer in her foot, and was affectionately known in her community as "Aunt Crutchie." She supported herself by taking in washing and sewing, and was known for favoring brightly colored dresses. She shared her home on Gayoso Street with a 16 year old housemate, Lucy Smith.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 2)">
+      <div class="chapter-num">3</div>
+      <div class="chapter-text">
+        <div class="chapter-title">The Memphis Massacre</div>
+        <div class="chapter-era">May 1&ndash;3, 1866</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>On May 1, 1866, white police officers attempted to break up an impromptu street gathering of Black soldiers and their families. The soldiers refused to leave, a nervous officer accidentally shot himself in the scuffle, and the incident was falsely blamed on the soldiers. What followed was three days of organized violence against Memphis's Black community.</p>
+      <p>Black soldiers were recalled to Fort Pickering on the first night in an attempt to calm the situation, but doing so left women, children, and homes undefended against the mob that formed. By the time it ended, 48 Black residents were dead, 75 were injured, more than 100 had been robbed, and at least five Black women, Frances Thompson among them, had survived sexual violence. Four Black churches, twelve Black schools, and more than 80 Black homes had been burned to the ground.</p>
+      <p>The scale and coordination of the violence has led historians to conclude it was almost certainly planned, or at minimum encouraged, by the city's white elites rather than a spontaneous outbreak.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 3)">
+      <div class="chapter-num">4</div>
+      <div class="chapter-text">
+        <div class="chapter-title">A Night on Gayoso Street</div>
+        <div class="chapter-era">May 2, 1866</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>On the second night of the violence, a few hours before dawn, seven white men, at least two of them police officers, forced their way into Frances Thompson's home and woke her and Lucy Smith. The men first demanded food, then demanded the two women's bodies. When Frances told them that she and Lucy were not "that kind of women" and asked them to leave, the men assaulted both women regardless of their refusal.</p>
+      <p>Afterward, the men destroyed the food they had been served, ransacked the house, and stole silk dresses, quilts the women had been sewing for Union soldiers, and several hundred dollars in cash, money that belonged partly to Frances and partly to other women in the community who had entrusted it to her safekeeping.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 5 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 4)">
+      <div class="chapter-num">5</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Testimony That Shaped a Nation</div>
+        <div class="chapter-era">June 1866</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>A month after the massacre, 170 Black residents of Memphis testified before Congress about what had happened. Among them, Frances Thompson's testimony, along with that of four other survivors of sexual violence, was remarkable for reasons that went beyond the massacre itself.</p>
+      <p>Before the Civil War, Black people were barred from testifying in court, let alone before Congress, and especially not against a white person. Before emancipation, the law also denied enslaved people the legal capacity to give or withhold consent at all, since they were classified as property. That Congress took seriously the testimony of five Black women describing assault, mere months after the end of slavery, was nothing short of revolutionary. It marked one of the earliest steps in a long, ongoing process: Black women publicly reclaiming authority over their own bodies from the systems built to deny it.</p>
+      <p>Excerpts of the congressional report were published nationally, and the public horror over what happened in Memphis, compounded months later by similar violence in New Orleans, helped shift national sentiment firmly toward the passage of the 14th Amendment and its promise of equal protection under the law. Notably, that promise excluded Native Americans, who were specifically exempted from protection when the amendment was ratified.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 6 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 5)">
+      <div class="chapter-num">6</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Arrested, Examined, and Remembered</div>
+        <div class="chapter-era">1876</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>A decade after her testimony, in 1876, Frances Thompson was back in the newspapers, this time arrested for cross-dressing and forced to undergo a physical examination by four white male doctors. Despite telling them she was "of double sex" and that she had worn women's clothing even during enslavement, the doctors determined she was a man.</p>
+      <p>Frances was fined fifty dollars, roughly a thousand dollars today, and when she couldn't pay, she was sentenced to 100 days on a chain gang, forced to wear men's clothing. Crowds gathered to gawk at her while she worked. When a reporter pressed her with invasive questions about her gender, she told him it was none of his business. When an onlooker made a snide remark, she reportedly threw a paving stone at him with perfect aim.</p>
+      <p>Near the end of her sentence, Frances fell seriously ill. After her release, friends found her in a cabin in North Memphis and brought her to a hospital, where she died just days later of either pneumonia or dysentery. She was 36 years old.</p>
+      <p>Historian June West has cautioned against framing Frances Thompson simply as a hero or revolutionary, given the suffering and violence she survived.</p>
+      <div class="pullquote">"Frances Thompson was a Black woman who inhabited an unlivable world." &mdash; June West, TSQ (2026)</div>
+      <p>West suggests that what Frances's story offers isn't necessarily triumph, but something quieter: a record of kinship and survival in the face of overwhelming hostility, and in her death, new ways to think about how to live.</p>
+    </div>
+  </div>
+
+  <!-- Completion Banner -->
+  <div class="completion-banner" id="completion-banner">
+    &#127752; You've explored all 6 chapters. Thank you for learning with us this Pride Month.
+  </div>
+
+  <!-- ICLC Reflection -->
+  <div class="reflection">
+    <div class="reflection-eyebrow">ICLC Connection</div>
+    <h2>Why Frances Thompson's Story Matters to Our Work</h2>
+    <p>Frances Thompson's testimony mattered because the legal system of her time had spent generations denying Black people, and especially Black women, the basic legal capacity to say what had happened to them and be believed. Her words, given before Congress months after emancipation, helped move the country toward formal recognition that everyone deserves equal protection under the law. A decade later, that same system turned around and punished her for simply living as herself.</p>
+    <p>That contradiction, a legal system capable of recognizing someone's humanity in one moment and denying it in the next, is not confined to 1866. At Inner City Law Center, we represent clients who still navigate systems that decide, often inconsistently, whose testimony counts, whose identity is recognized, and whose safety is worth protecting.</p>
+    <p>Frances Thompson's story is a reminder that legal recognition has always been hard won, incomplete, and unevenly applied, and that the people who first demanded it rarely lived to see it fully realized. Our work continues that demand.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Video content courtesy of <a href="https://www.youtube.com/@yesterqueers" target="_blank" rel="noopener">Yesterqueers</a> by Amanda W. Timpson, Public Historian.<br/>
+    Sources: Ash, <em>A Massacre in Memphis</em> (2014) &nbsp;·&nbsp; West, TSQ (2026) &nbsp;·&nbsp; Snorton, <em>Black on Both Sides</em> (2017) &nbsp;·&nbsp; Human Rights Campaign Foundation<br/>
+    ICLC DEIA Advisory Group &nbsp;·&nbsp; Pride Month 2026
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const opened = new Array(6).fill(false);
+
+  function toggleChapter(btn, index) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+
+    // Close all panels first
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+
+    // Open the clicked one if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('active');
+      opened[index] = true;
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = opened.filter(Boolean).length;
+    const pct = (count / 6) * 100;
+
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = count + ' of 6 chapters';
+
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i) {
+      dot.classList.toggle('done', opened[i]);
+    });
+
+    if (count === 6) {
+      document.getElementById('completion-banner').classList.add('show');
+    }
+  }
+</script>
+
+</body>
+</html>
