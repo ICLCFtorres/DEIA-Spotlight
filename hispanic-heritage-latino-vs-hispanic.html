@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latino, Hispanic, or Latinx? | ICLC DEIA Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: #f7f5f0;
+      color: #0E1E42;
+      line-height: 1.75;
+    }
+
+    /* ── BANNER STRIPE ── */
+    .banner-stripe {
+      height: 9px;
+      background: linear-gradient(to right, #0E316B 0%, #0B409C 50%, #FFD716 100%);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(150deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 44px 28px 40px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      font-style: italic;
+      color: #FFD716;
+    }
+
+    .header-byline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 10px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    /* ── VIDEO ── */
+    .video-section {
+      margin: 32px 0 26px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(14, 49, 107, 0.18);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-top: 9px;
+      font-style: italic;
+    }
+
+    /* ── INTRO BLURB ── */
+    .intro-blurb {
+      background: #ffffff;
+      border-left: 4px solid #0B409C;
+      border-radius: 0 6px 6px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+      color: #0E1E42;
+      line-height: 1.75;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* ── PROGRESS TRACKER ── */
+    .progress-section {
+      margin-bottom: 22px;
+    }
+
+    .progress-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0E316B;
+      margin-bottom: 7px;
+    }
+
+    .progress-bar-bg {
+      background: #dde2ec;
+      height: 7px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      background: linear-gradient(to right, #0B409C, #FFD716);
+      transition: width 0.45s ease;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dde2ec;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .progress-dot.done {
+      background: #0B409C;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 17px 20px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f0f4ff;
+    }
+
+    .accordion-header.active {
+      background: #0E316B;
+    }
+
+    .chapter-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFD716;
+      background: #0B409C;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .accordion-header.active .chapter-num {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFD716;
+    }
+
+    .chapter-text {
+      flex: 1;
+    }
+
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0E316B;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-title {
+      color: #ffffff;
+    }
+
+    .chapter-era {
+      font-size: 0.73rem;
+      font-style: italic;
+      color: #8a96a8;
+      margin-top: 2px;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-era {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .accordion-chevron {
+      font-size: 0.9rem;
+      color: #0B409C;
+      transition: transform 0.3s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .accordion-header.active .accordion-chevron {
+      color: #FFD716;
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 22px 26px;
+      font-size: 0.95rem;
+      color: #0E1E42;
+      line-height: 1.8;
+      border-top: 2px solid #eef2ff;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .accordion-body p {
+      margin-bottom: 14px;
+    }
+
+    .accordion-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pullquote {
+      border-left: 3px solid #FFD716;
+      background: #f7f5f0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.94rem;
+      color: #0E316B;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.7;
+    }
+
+    /* ── COMPLETION BANNER ── */
+    .completion-banner {
+      display: none;
+      background: #0B409C;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px 22px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      box-shadow: 0 4px 14px rgba(11, 64, 156, 0.3);
+    }
+
+    .completion-banner.show {
+      display: block;
+    }
+
+    /* ── REFLECTION ── */
+    .reflection {
+      background: linear-gradient(145deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 34px 30px;
+      border-radius: 10px;
+      margin-top: 34px;
+      box-shadow: 0 6px 20px rgba(14, 49, 107, 0.25);
+    }
+
+    .reflection-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 10px;
+    }
+
+    .reflection h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .reflection p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+    }
+
+    .reflection p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 0.76rem;
+      color: #8a96a8;
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: #0B409C;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Banner Stripe -->
+<div class="banner-stripe"></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-eyebrow">ICLC DEIA Spotlight &nbsp;·&nbsp; Hispanic Heritage Month 2026</div>
+  <h1>Latino, Hispanic, or Latinx? <em>Where the Labels Came From</em></h1>
+  <div class="header-byline">Presented by Origin of Everything &nbsp;·&nbsp; PBS Digital Studios, hosted by Danielle Bainbridge</div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Video -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/GBt5rMD2aDc"
+        title="What's the Difference Between Latino and Hispanic? | Origin of Everything"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </div>
+    <div class="video-caption">Video source: Origin of Everything, PBS Digital Studios &nbsp;·&nbsp; Hosted by Danielle Bainbridge</div>
+  </div>
+
+  <!-- Intro Blurb -->
+  <div class="intro-blurb">
+    None of these words are as old, or as neutral, as they sound. "Hispanic" was built by a federal government committee. "Latino" grew as a pushback against it. "Latinx" is newer still, and still contested. None of it was decided by the tens of millions of people the labels are meant to describe. This Hispanic Heritage Month, we're tracing where the categories actually came from, and why so many people still describe themselves another way entirely. Explore the story in five chapters below.
+  </div>
+
+  <!-- Progress Tracker -->
+  <div class="progress-section">
+    <div class="progress-label">Your Progress &mdash; <span id="progress-text">0 of 5 chapters</span></div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-bar"></div>
+    </div>
+    <div class="progress-dots" id="progress-dots">
+      <div class="progress-dot" data-dot="0"></div>
+      <div class="progress-dot" data-dot="1"></div>
+      <div class="progress-dot" data-dot="2"></div>
+      <div class="progress-dot" data-dot="3"></div>
+      <div class="progress-dot" data-dot="4"></div>
+    </div>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 0)">
+      <div class="chapter-num">1</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Before the Boxes: Identity Without a Checkbox</div>
+        <div class="chapter-era">Pre-1970s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>For most of U.S. history, there was no single government category covering everyone with roots in Mexico, Puerto Rico, Cuba, Central America, South America, and Spain. People identified by their specific nationality or heritage, as Mexican American, Puerto Rican, Cuban, Tejano, or by the regional identity of their family's community. The Census Bureau's own count of this population shifted from decade to decade, at various points relying on birthplace, surname, or a "Spanish mother tongue" question that missed people whose families had stopped speaking Spanish generations earlier.</p>
+      <p>That patchwork made it difficult for lawmakers, agencies, and advocacy groups to see the full size or needs of these communities in one place, which mattered enormously once federal civil rights enforcement and funding began to depend on demographic data.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 1)">
+      <div class="chapter-num">2</div>
+      <div class="chapter-text">
+        <div class="chapter-title">"Hispanic": A Category Built by Committee</div>
+        <div class="chapter-era">1970s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>The word "Hispanic" itself is old, drawn from "Hispania," the Roman name for the Iberian Peninsula, and it had long been used informally to reference a connection to Spain and the Spanish language. But "Hispanic" as an official ethnic category is much younger. In the 1970s, Mexican American and Puerto Rican advocacy groups pushed the federal government to adopt a single, consistent pan-ethnic term so their communities could finally be counted and funded as one population rather than scattered across inconsistent categories.</p>
+      <p>The Office of Management and Budget answered with Statistical Policy Directive No. 15 in 1977, which formally defined "Hispanic" as a category federal agencies had to use. The term made its full debut as its own question on the 1980 Census. Because it was defined around a historical connection to Spain and Spanish-speaking countries, "Hispanic" technically includes people from Spain itself, but excludes Brazil, a Latin American country where Portuguese, not Spanish, is spoken.</p>
+      <div class="pullquote">"Hispanic" was not a term communities chose first. It was a box the government needed, that advocacy groups then pushed to define on their own terms.</div>
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 2)">
+      <div class="chapter-num">3</div>
+      <div class="chapter-text">
+        <div class="chapter-title">"Latino": A Geography, Not a Language</div>
+        <div class="chapter-era">1990s &ndash; 2000s</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>"Latino" grew in popularity partly as a corrective to "Hispanic." Where "Hispanic" is built around a shared connection to Spain and the Spanish language, "Latino" is built around geography, referring to people with roots in Latin America regardless of what language their country speaks. That flips the earlier exclusion: "Latino" includes Brazilians, but technically excludes people from Spain, since Spain is in Europe, not Latin America.</p>
+      <p>For many, "Latino" also carried a different feeling than "Hispanic." Because it centers Latin America rather than the former colonial power, some see it as a term that communities reclaimed for themselves rather than one first defined by a federal agency. The Census Bureau added "Latino" alongside "Hispanic" as an official option starting with the 2000 Census, acknowledging that people used, and preferred, both terms differently.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 3)">
+      <div class="chapter-num">4</div>
+      <div class="chapter-text">
+        <div class="chapter-title">"Latinx": The Newest, Most Contested Addition</div>
+        <div class="chapter-era">2000s &ndash; Present</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Spanish, like many Romance languages, grammatically genders nouns, so "Latino" and "Latina" leave no built-in way to refer to a group inclusively or to someone who doesn't identify within that binary. "Latinx" emerged in the early 2000s, largely in queer and academic Latino communities online, as a gender-neutral alternative, and it spread more widely in U.S. media and institutions after about 2014.</p>
+      <p>The term remains genuinely divisive. Survey research has repeatedly found that only a small share of Hispanic and Latino adults in the U.S. have heard of "Latinx," and an even smaller share use it to describe themselves, with some critics arguing it awkwardly imposes English-language gender politics onto Spanish grammar. Others see it as a necessary evolution for a community that includes nonbinary and gender-nonconforming people. Alternatives like "Latine," which fits more naturally into spoken Spanish, have gained ground in some of the same circles for exactly that reason.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 5 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 4)">
+      <div class="chapter-num">5</div>
+      <div class="chapter-text">
+        <div class="chapter-title">What People Actually Call Themselves</div>
+        <div class="chapter-era">Today</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>After all that history, national survey data consistently shows that most people in this population skip the pan-ethnic labels altogether when describing themselves. Given the choice, a majority say they most often identify by their family's country of origin, as Mexican, Mexican American, Salvadoran, Cuban, Dominican, or Puerto Rican, rather than as "Hispanic," "Latino," or "Latinx." Those broader terms tend to get used more in institutional settings, like government forms, media coverage, and workplace demographic categories, than in everyday conversation.</p>
+      <p>None of this makes the terms meaningless. They exist because communities needed to be visible together in order to be counted, funded, and protected under civil rights law. But the terms were always a tool built for that purpose, not a replacement for the much more specific identities people actually carry.</p>
+    </div>
+  </div>
+
+  <!-- Completion Banner -->
+  <div class="completion-banner" id="completion-banner">
+    &#127775; You've explored all 5 chapters. Thank you for learning with us this Hispanic Heritage Month.
+  </div>
+
+  <!-- ICLC Reflection -->
+  <div class="reflection">
+    <div class="reflection-eyebrow">ICLC Connection</div>
+    <h2>Why This History Matters to Our Work</h2>
+    <p>A large share of the clients ICLC serves identify as Hispanic, Latino, or by a specific national origin, and the language we use to describe them shows up everywhere in our work, from intake forms to court filings to the demographic data we report to funders. Understanding where these labels came from is a reminder that they are administrative tools first, built to make communities visible to government systems, and personal identities second.</p>
+    <p>That distinction matters in direct service. A form that only offers "Hispanic" or "Latino" as a checkbox can flatten someone whose own sense of identity is Salvadoran, Zapotec, Afro Latino, or something the form never anticipated. The respectful default is the same one good advocates already practice: ask people how they identify, and use that, rather than assuming a label fits because it appears close enough on a government form.</p>
+    <p>This Hispanic Heritage Month, we're recognizing both the community our work serves every day and the deeper histories, cultures, and self-defined identities that no single word will ever fully capture.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Video content courtesy of <a href="https://www.youtube.com/@OriginOfEverything" target="_blank" rel="noopener">Origin of Everything</a>, PBS Digital Studios, hosted by Danielle Bainbridge.<br/>
+    Sources: U.S. Census Bureau &nbsp;·&nbsp; OMB Statistical Policy Directive No. 15 (1977) &nbsp;·&nbsp; Pew Research Center<br/>
+    ICLC DEIA Advisory Group &nbsp;·&nbsp; Hispanic Heritage Month 2026
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const opened = new Array(5).fill(false);
+
+  function toggleChapter(btn, index) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+
+    // Close all panels first
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+
+    // Open the clicked one if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('active');
+      opened[index] = true;
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = opened.filter(Boolean).length;
+    const pct = (count / 5) * 100;
+
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = count + ' of 5 chapters';
+
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i) {
+      dot.classList.toggle('done', opened[i]);
+    });
+
+    if (count === 5) {
+      document.getElementById('completion-banner').classList.add('show');
+    }
+  }
+</script>
+
+</body>
+</html>
