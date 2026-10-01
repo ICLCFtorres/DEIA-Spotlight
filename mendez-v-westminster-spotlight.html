@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mendez v. Westminster | ICLC DEIA Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: #f7f5f0;
+      color: #0E1E42;
+      line-height: 1.75;
+    }
+
+    /* ── BANNER STRIPE ── */
+    .banner-stripe {
+      height: 9px;
+      background: linear-gradient(to right, #0E316B 0%, #0B409C 50%, #FFD716 100%);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(150deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 44px 28px 40px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      font-style: italic;
+      color: #FFD716;
+    }
+
+    .header-byline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 10px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    /* ── VIDEO ── */
+    .video-section {
+      margin: 32px 0 26px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(14, 49, 107, 0.18);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-top: 9px;
+      font-style: italic;
+    }
+
+    /* ── INTRO BLURB ── */
+    .intro-blurb {
+      background: #ffffff;
+      border-left: 4px solid #0B409C;
+      border-radius: 0 6px 6px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+      color: #0E1E42;
+      line-height: 1.75;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* ── PROGRESS TRACKER ── */
+    .progress-section {
+      margin-bottom: 22px;
+    }
+
+    .progress-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0E316B;
+      margin-bottom: 7px;
+    }
+
+    .progress-bar-bg {
+      background: #dde2ec;
+      height: 7px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      background: linear-gradient(to right, #0B409C, #FFD716);
+      transition: width 0.45s ease;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #dde2ec;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .progress-dot.done {
+      background: #0B409C;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 17px 20px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f0f4ff;
+    }
+
+    .accordion-header.active {
+      background: #0E316B;
+    }
+
+    .chapter-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFD716;
+      background: #0B409C;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .accordion-header.active .chapter-num {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFD716;
+    }
+
+    .chapter-text {
+      flex: 1;
+    }
+
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0E316B;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-title {
+      color: #ffffff;
+    }
+
+    .chapter-era {
+      font-size: 0.73rem;
+      font-style: italic;
+      color: #8a96a8;
+      margin-top: 2px;
+      transition: color 0.2s;
+    }
+
+    .accordion-header.active .chapter-era {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .accordion-chevron {
+      font-size: 0.9rem;
+      color: #0B409C;
+      transition: transform 0.3s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .accordion-header.active .accordion-chevron {
+      color: #FFD716;
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 22px 26px;
+      font-size: 0.95rem;
+      color: #0E1E42;
+      line-height: 1.8;
+      border-top: 2px solid #eef2ff;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .accordion-body p {
+      margin-bottom: 14px;
+    }
+
+    .accordion-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pullquote {
+      border-left: 3px solid #FFD716;
+      background: #f7f5f0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.94rem;
+      color: #0E316B;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.7;
+    }
+
+    /* ── COMPLETION BANNER ── */
+    .completion-banner {
+      display: none;
+      background: #0B409C;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px 22px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      box-shadow: 0 4px 14px rgba(11, 64, 156, 0.3);
+    }
+
+    .completion-banner.show {
+      display: block;
+    }
+
+    /* ── REFLECTION ── */
+    .reflection {
+      background: linear-gradient(145deg, #0E316B 0%, #0B409C 100%);
+      color: #ffffff;
+      padding: 34px 30px;
+      border-radius: 10px;
+      margin-top: 34px;
+      box-shadow: 0 6px 20px rgba(14, 49, 107, 0.25);
+    }
+
+    .reflection-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFD716;
+      margin-bottom: 10px;
+    }
+
+    .reflection h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .reflection p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+    }
+
+    .reflection p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 0.76rem;
+      color: #8a96a8;
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: #0B409C;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Banner Stripe -->
+<div class="banner-stripe"></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-eyebrow">ICLC DEIA Spotlight &nbsp;·&nbsp; Hispanic Heritage Month 2026</div>
+  <h1>Mendez v. Westminster: <em>The Case Before Brown</em></h1>
+  <div class="header-byline">Presented by Moments in History &nbsp;·&nbsp; Administrative Office of the U.S. Courts</div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Video -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/FIRDIM4mqPQ"
+        title="Moments in History: Mendez v. Westminster"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </div>
+    <div class="video-caption">Video source: Moments in History, Administrative Office of the U.S. Courts</div>
+  </div>
+
+  <!-- Intro Blurb -->
+  <div class="intro-blurb">
+    Seven years before Brown v. Board of Education, a group of Mexican American families in Orange County, California sued their local school districts for turning their children away from "white" schools. They won, in federal court, on an Equal Protection theory the Ninth Circuit accepted and California's governor acted on within months. One of the lawyers who took notice was Thurgood Marshall. One of the officials who signed the desegregation bill that followed later wrote the Supreme Court's opinion in Brown. Explore the case in five chapters below.
+  </div>
+
+  <!-- Progress Tracker -->
+  <div class="progress-section">
+    <div class="progress-label">Your Progress &mdash; <span id="progress-text">0 of 5 chapters</span></div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-bar"></div>
+    </div>
+    <div class="progress-dots" id="progress-dots">
+      <div class="progress-dot" data-dot="0"></div>
+      <div class="progress-dot" data-dot="1"></div>
+      <div class="progress-dot" data-dot="2"></div>
+      <div class="progress-dot" data-dot="3"></div>
+      <div class="progress-dot" data-dot="4"></div>
+    </div>
+  </div>
+
+  <!-- Chapter 1 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 0)">
+      <div class="chapter-num">1</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Turned Away at the Schoolhouse Door</div>
+        <div class="chapter-era">Westminster, California, 1944</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>In 1944, Gonzalo and Felicitas Mendez moved their family to a farm they leased in Westminster, in Orange County, and tried to enroll their children, including eight year old Sylvia, at the neighborhood school, 17th Street School. School staff turned them away and directed the children instead to Hoover Elementary, the designated "Mexican school" several blocks away, a wood shack near a cow pasture with no permanent facilities to speak of.</p>
+      <p>There was no California statute requiring segregation of Mexican American children, unlike the Jim Crow laws governing Black and white schools elsewhere in the country, or California's own laws permitting the separate schooling of Asian and Native American children. School officials relied instead on informal local policy, justified using language ability and "Americanization," even though the Mendez children spoke fluent English.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 1)">
+      <div class="chapter-num">2</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Five Families, One Lawsuit</div>
+        <div class="chapter-era">1945</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Rather than fight the decision alone, the Mendez family joined four other Mexican American families, the Guzmans, Palominos, Estradas, and Ramirezes, and filed a federal class action lawsuit on behalf of roughly 5,000 children of Mexican descent across four Orange County school districts: Westminster, Garden Grove, Santa Ana, and El Modena. Their attorney, David Marcus, argued the case not as a claim about language or assimilation, but as a straightforward Fourteenth Amendment Equal Protection claim: the state was treating children differently based on ancestry, with no legal basis for doing so.</p>
+      <p>That framing mattered. Because no explicit statute authorized the segregation, as existed for other groups, the families had a clean path to argue the practice was unconstitutional on its face, not just poorly implemented.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 2)">
+      <div class="chapter-num">3</div>
+      <div class="chapter-text">
+        <div class="chapter-title">A Federal Judge Rules</div>
+        <div class="chapter-era">1946</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>In February 1946, Judge Paul J. McCormick of the U.S. District Court for the Southern District of California ruled for the families. He found that segregating Mexican American children fostered feelings of inferiority and antagonism, undermined the goal of a unified American citizenry the schools claimed to serve, and violated the Equal Protection Clause.</p>
+      <div class="pullquote">The segregation of Mexican American children "fosters antagonisms in the children and suggests inferiority among them where none exists." &mdash; Judge Paul J. McCormick, 1946</div>
+      <p>The school districts appealed to the Ninth Circuit Court of Appeals, setting up a fight that would draw national attention from civil rights organizations watching closely for a legal strategy they could use elsewhere.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 3)">
+      <div class="chapter-num">4</div>
+      <div class="chapter-text">
+        <div class="chapter-title">Thurgood Marshall Takes Notice</div>
+        <div class="chapter-era">1947</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>On appeal, the case drew amicus briefs from the NAACP, the ACLU, the Japanese American Citizens League, the National Lawyers Guild, and the American Jewish Congress. The NAACP's brief was filed by Thurgood Marshall and Robert Carter, who argued that segregation itself, regardless of whether the separate facilities were equal, violated the Constitution. In April 1947, the full Ninth Circuit affirmed the district court's ruling.</p>
+      <p>Marshall and Carter would refine that same argument, that separation itself is unequal, over the next several years, eventually bringing it before the U.S. Supreme Court in Brown v. Board of Education in 1954.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 5 -->
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleChapter(this, 4)">
+      <div class="chapter-num">5</div>
+      <div class="chapter-text">
+        <div class="chapter-title">California Acts, and a Line to Brown</div>
+        <div class="chapter-era">1947 &ndash; 2011</div>
+      </div>
+      <div class="accordion-chevron">&#9660;</div>
+    </button>
+    <div class="accordion-body">
+      <p>Within months of the Ninth Circuit's ruling, California Governor Earl Warren signed legislation repealing the state's remaining school segregation statutes, making California the first state to legislatively end school segregation. Seven years later, as Chief Justice of the United States, Warren wrote the unanimous opinion in Brown v. Board of Education, striking down school segregation nationwide. Historians have long pointed to Mendez as part of the groundwork, legal and personal, that shaped his thinking.</p>
+      <p>Sylvia Mendez, the child turned away from 17th Street School at age eight, spent her adult life as a nurse and later a civil rights advocate, telling the story of the case her parents helped bring. In 2011, President Obama awarded her the Presidential Medal of Freedom for that work.</p>
+    </div>
+  </div>
+
+  <!-- Completion Banner -->
+  <div class="completion-banner" id="completion-banner">
+    &#127775; You've explored all 5 chapters. Thank you for learning with us this Hispanic Heritage Month.
+  </div>
+
+  <!-- ICLC Reflection -->
+  <div class="reflection">
+    <div class="reflection-eyebrow">ICLC Connection</div>
+    <h2>Why Mendez v. Westminster Matters to Our Work</h2>
+    <p>Mendez v. Westminster was won without a change in the law on the books, because the discrimination never needed a statute to operate. School officials simply decided, informally and locally, who belonged where, and it took a federal lawsuit to force a court to say that decision violated the Constitution. That pattern, where harm runs through practice and discretion rather than written policy, is one our advocates still recognize in housing, benefits, and government systems today.</p>
+    <p>The case is also a reminder that persistence by a small number of families, with no guarantee of winning, can move a legal argument that eventually reshapes the country. The Mendez, Guzman, Palomino, Estrada, and Ramirez families were not trying to make national history. They were trying to get their own children into the school down the street. ICLC's clients are usually asking for something just as immediate and just as fundamental.</p>
+    <p>This Hispanic Heritage Month, we're recognizing a case that doesn't always make it into the standard civil rights timeline, even though it helped write the legal argument that did.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Video content courtesy of <a href="https://www.youtube.com/watch?v=FIRDIM4mqPQ" target="_blank" rel="noopener">Moments in History</a>, Administrative Office of the U.S. Courts.<br/>
+    Sources: Mendez v. Westminster Sch. Dist., 64 F. Supp. 544 (S.D. Cal. 1946), aff'd 161 F.2d 774 (9th Cir. 1947) &nbsp;·&nbsp; U.S. Courts &nbsp;·&nbsp; Library of Congress<br/>
+    ICLC DEIA Advisory Group &nbsp;·&nbsp; Hispanic Heritage Month 2026
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const opened = new Array(5).fill(false);
+
+  function toggleChapter(btn, index) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+
+    // Close all panels first
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+
+    // Open the clicked one if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('active');
+      opened[index] = true;
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const count = opened.filter(Boolean).length;
+    const pct = (count / 5) * 100;
+
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = count + ' of 5 chapters';
+
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i) {
+      dot.classList.toggle('done', opened[i]);
+    });
+
+    if (count === 5) {
+      document.getElementById('completion-banner').classList.add('show');
+    }
+  }
+</script>
+
+</body>
+</html>
